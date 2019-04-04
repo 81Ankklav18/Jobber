@@ -9,12 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var jobString: String?
+    
+    @IBOutlet weak var textFieldJob: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    @IBAction func buttonSearch(_ sender: Any) {
+        /*...*/
+    }
+    
+    //Пересылаем текст поисковой строки как параметр для
+    //конфигурирования поисковой строки и загрузки данных
+    override func prepare (for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "btnSendSegue") {
+            let jvc = segue.destination as! JobViewController
+            jvc.jobForURL = textFieldJob.text
+        }
+    }
+    
 }
 
